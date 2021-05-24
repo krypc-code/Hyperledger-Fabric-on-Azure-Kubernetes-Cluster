@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: hlf1
+  labels:
+    component: asset-transfer-basic
+  name: asset-transfer-basic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: asset-transfer-basic
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        component: asset-transfer-basic
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: cc
+        env:
+        - name: CHAINCODE_ID
+          value: basics_1.0:307a3baf76dce88bf3a943fd540e659c76c34b2e3998cd03148ca3714fc60246
+        - name: CHAINCODE_SERVER_ADDRESS
+          value: 0.0.0.0:9999
+        - name: CHAINCODE_TLS_DISABLED
+          value: 'false'            
+        - name: CHAINCODE_TLS_KEY
+          value: /crypto/key/key1.pem  
+        - name: CHAINCODE_TLS_CERT
+          value: /crypto/cert/cert1.pem                      
+        image: krypctechnologies/azurehlfrepo:asset-trannsfer-basic
+        ports:
+        - containerPort: 9999
+        resources: {}
+        volumeMounts:
+        - name: cc-cert
+          mountPath: /crypto/cert
+        - name: cc-key
+          mountPath: /crypto/key          
+      volumes:
+        - name: cc-cert
+          secret:
+             secretName: cc-cert  
+        - name: cc-key
+          secret:
+             secretName: cc-key                
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: hlf1
+  labels:
+    component: asset-transfer-basic
+  name: asset-transfer-basic
+spec:
+  ports:
+  - name: "9999"
+    protocol: TCP
+    port: 9999
+    targetPort: 9999
+  selector:
+    component: asset-transfer-basic

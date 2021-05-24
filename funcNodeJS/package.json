@@ -1,0 +1,17 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/ms-rest-js": "^2.0.5",
+    "@azure/storage-blob": "^12.1.0",
+    "axios": "^0.19.2",
+    "js-yaml": "^3.13.1",
+    "kubernetes-client": "^8.3.7",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {}
+}

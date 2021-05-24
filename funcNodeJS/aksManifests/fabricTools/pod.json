@@ -1,0 +1,86 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "fabric-tools",
+    "labels": {
+      "app": "fabric-tools"
+    }
+  },
+  "spec": {
+    "restartPolicy": "Never",
+    "serviceAccountName": "admin-account",
+    "containers": [
+      {
+        "name": "fabric-tools",
+        "image": "fabricToolsImageWithTag",
+        "command": [
+          "/bin/bash"
+        ],
+        "args": [
+          "-c",
+          "/var/hyperledger/scripts/buildNetwork.sh"
+        ],
+        "env": [
+          {
+            "name": "HLF_STATIC_IP",
+            "value": ""
+          },
+          {
+            "name": "HLF_NODE_TYPE",
+            "value": "orderer"
+          },
+          {
+            "name": "HLF_NODE_COUNT",
+            "value": "5"
+          },
+          {
+            "name": "HLF_ORG_NAME",
+            "value": "org0"
+          },
+          {
+            "name": "HLF_BACKEND_DB",
+            "value": "couchDB"
+          },
+          {
+            "name": "HLF_DOMAIN_NAME",
+            "value": ""
+          }
+        ],
+        "volumeMounts": [
+          {
+            "mountPath": "/var/hyperledger/fabric-ca-credentials",
+            "name": "ca-credentials",
+            "readOnly": true
+          },
+          {
+            "mountPath": "/var/hyperledger/fabric-ca-server-db",
+            "name": "ca-server-db",
+            "readOnly": true
+          }
+        ],
+        "workingDir": "/var/hyperledger"
+      }
+    ],
+    "imagePullPolicy": "Always",
+    "imagePullSecrets": [
+      {
+        "name": "fabric-tools-secrets"
+      }
+    ],
+    "volumes": [
+      {
+        "name": "ca-credentials",
+        "secret": {
+          "secretName": "ca-credentials"
+        }
+      },
+      {
+        "name": "ca-server-db",
+        "secret": {
+          "secretName": "ca-server-db"
+        }
+      }
+    ]
+  }
+}

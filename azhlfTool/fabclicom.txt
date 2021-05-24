@@ -1,0 +1,22 @@
+
+peer channel fetch 0 ./channel.block -o orderer0.num.krypcore.in:7050 -c num --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/channel/crypto-config/ordererOrganizations/num.krypcore.in/msp/tlscacerts/tlsca.num.krypcore.in-cert.pem
+
+peer channel join -b channel.block
+
+peer lifecycle chaincode package basic.tar.gz --path /chaincode/chaincode-go/ --lang golang --label basic_1.0
+
+peer lifecycle chaincode approveformyorg -o orderer0.num.krypcore.in:7050 --signature-policy "OR('numMSP.member')" --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/channel/crypto-config/ordererOrganizations/num.krypcore.in/msp/tlscacerts/tlsca.num.krypcore.in-cert.pem --channelID num --name basic --version 1.0 --package-id basic_1.0:4ec191e793b27e953ff2ede5a8bcc63152cecb1e4c3f301a26e22692c61967ad --sequence 1
+
+peer lifecycle chaincode checkcommitreadiness --signature-policy "OR('numMSP.member')" --channelID num --name basic --version 1.0 --sequence 1 --output json
+
+peer lifecycle chaincode commit -o orderer0.num.krypcore.in:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/channel/crypto-config/ordererOrganizations/num.krypcore.in/msp/tlscacerts/tlsca.num.krypcore.in-cert.pem --channelID num --signature-policy "OR('numMSP.member')" --name basic --peerAddresses peer0.num.krypcore.in:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/channel/crypto-config/peerOrganizations/num.krypcore.in/peers/peer0.num.krypcore.in/tls/ca.crt --version 1.0 --sequence 1
+
+peer lifecycle chaincode querycommitted --channelID num --name basic
+
+peer chaincode invoke -o orderer0.num.krypcore.in:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/channel/crypto-config/ordererOrganizations/num.krypcore.in/msp/tlscacerts/tlsca.num.krypcore.in-cert.pem -C num -n basic --peerAddresses peer0.num.krypcore.in:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/channel/crypto-config/peerOrganizations/num.krypcore.in/peers/peer0.num.krypcore.in/tls/ca.crt  -c '{"function":"InitLedger","Args":[]}'
+
+peer chaincode query -C num -n basic -c '{"Args":["GetAllAssets"]}'
+
+
+
+

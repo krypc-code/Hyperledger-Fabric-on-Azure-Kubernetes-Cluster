@@ -1,0 +1,1 @@
+{"version":3,"file":"chaincode.js","sourceRoot":"","sources":["../../commandDefs/chaincode.ts"],"names":[],"mappings":";;;AAEa,QAAA,OAAO,GAAG,qBAAqB,CAAC;AAChC,QAAA,IAAI,GAAG,oBAAoB,CAAC;AAC5B,QAAA,OAAO,GAAG,CAAC,KAAW,EAAQ,EAAE,CAAC,KAAK,CAAC,UAAU,CAAC,WAAW,CAAC,CAAC,aAAa,EAAE,CAAC"}
