@@ -1,4 +1,4 @@
-## Hyperledger Fabric on Azure Kubernetes Service using ARM Deployment🥁
+## Hyperledger Fabric on Azure Kubernetes Service using ARM🥁
 
 
 - Microsoft provides ARM template for creating HLF network on AKS via `https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service`.
