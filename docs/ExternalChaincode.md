@@ -7,7 +7,7 @@
 
 
 
-![stagesofcaas.png](images/stagesofcaas.png)
+![stagesofcaas.png](../images/stagesofcaas.png)
 
 
 
