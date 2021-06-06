@@ -105,8 +105,11 @@ Connection will have things like address port etc,metadata will have type and la
 
 ## Docs 🛠
 - [Installation Guide : For customization of microsoft arm template for user defined organisation details.](docs/InstallationGuide.md)
+
 - [Generating Profiles : The admin,msp and connection profiles for orderer and peer.](docs/CreatingProfiles.md)
-- [Fabric CA Operations : Step if you wish to create a custom user for fabric ca.] (docs/CA.md)
+
+- [Fabric CA Operations : Step if you wish to create a custom user for fabric ca.](docs/CA.md)
+
 - [Consortium Creation : Creation of multiple organisations and their crypto materials.](docs/CreatingConsortiums.md)
 - [Setup Fabric Cli Go : Command line interface for interacting with the blockchain system.](docs/FabricGoCli.md)
 - [Channel Operations : Creation of channels and basic operations on them.](docs/ChannelOperations.md)
