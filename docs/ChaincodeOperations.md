@@ -18,7 +18,7 @@
 
 - The chaincode we are going to use is developed using GO, so all the above processes will be executed from Go chaincode perspective.
 
-![chaincode.png](images/chaincode-map.png)
+![chaincode.png](../images/chaincode-map.png)
 
 
 ##   Package Chaincode
@@ -98,7 +98,7 @@ $FABRIC_EXECUTABLE_PATH  chaincode query basic --fcn GetAllAssets  --args []
 
 
 
-![Important-Notice.jpeg.png](images/notice.png)
+![Important-Notice.jpeg.png](../images/notice.png)
 
 # Important
 - Note: Due to the recent update in Kubernetes for underneath runtime environment from docker to "containerd", the chaincode containers will not be functional, customers will have to move to running external chaincode as a service which is possible on HLF 2.2x only.
@@ -106,4 +106,4 @@ $FABRIC_EXECUTABLE_PATH  chaincode query basic --fcn GetAllAssets  --args []
 
 ## Follow Up
 - Enable external chaincode and run it as a container.
-- [External Chaincode Operations](url)
+- [External Chaincode Operations](ExternalChaincode.md)

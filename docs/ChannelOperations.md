@@ -1,7 +1,7 @@
 # Channel Operations
 
 
-![channels.png](images/channels.png)
+![channels.png](../images/channels.png)
 
 - Use the following command to pull binaries of HLF 2.2
 
@@ -96,4 +96,4 @@ $FABRIC_EXECUTABLE_PATH channel join <channel-name>
 
 ## Follow Up
 - Continue deployment by performing chaincode interactions.
-- [Chaincode Operations](url)
+- [Chaincode Operations](ChaincodeOperations.md)

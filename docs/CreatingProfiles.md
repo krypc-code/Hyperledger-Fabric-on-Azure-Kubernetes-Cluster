@@ -12,7 +12,7 @@
 
 
 # Running native HLF operations
-![fabricApp.png](images/Deployment.png)
+![fabricApp.png](../images/Deployment.png)
 
 
 - Sample application for performing the HLF operations. The commands are provided to Create new user identity and install your own chaincode.
@@ -60,4 +60,4 @@ It will create connection profile,admin profile and msp profile of the organizat
   
   ## Follow up
    -  Continue deployment by creating consortiums.
-   -  [Create Consortium](url)
+   -  [Create Consortium](CreatingConsortiums.md)

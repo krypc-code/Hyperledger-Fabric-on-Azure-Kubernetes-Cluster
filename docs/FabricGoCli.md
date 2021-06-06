@@ -1,5 +1,5 @@
 # Setting Up Fabric Go Cli
-![gopher.png](images/gopher.png)
+![gopher.png](../images/gopher.png)
 
 
 
@@ -106,5 +106,5 @@ $FABRIC_EXECUTABLE_PATH context use <context-name>
   
 ## Follow Up
 - Continue deployment by following channel operations.
-- [Channel Operations](url)
+- [Channel Operations](ChannelOperations.md)
   

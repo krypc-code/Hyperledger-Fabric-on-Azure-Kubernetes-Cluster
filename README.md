@@ -31,7 +31,7 @@
 1.	Installation process
  - Installation process is detailed step by step in different markdown files. Developers can follow the guide to install and perform transactions on Hyperledger Fabric 2.2.
  
-      - [Installation Guide](url)
+      - [Installation Guide](docs/InstallationGuide.md)
 
 
 2.	Software dependencies
@@ -104,12 +104,12 @@ Connection will have things like address port etc,metadata will have type and la
 
 
 ## Docs 🛠
-- [Installation Guide : For customization of microsoft arm template for user defined organisation details.](docs/Installation Guide.md)
-- [Generating Profiles : The admin,msp and connection profiles for orderer and peer.](docs/Creating Profiles.md)
-- [Fabric CA Operations : Step if you wish to create a custom user for fabric ca.](docs/CA.md)
-- [Consortium Creation : Creation of multiple organisations and their crypto materials.](docs/Creating Consortiums.md)
-- [Setup Fabric Cli Go : Command line interface for interacting with the blockchain system.](docs/Fabric Go Cli.md)
-- [Channel Operations : Creation of channels and basic operations on them.](docs/Channel Operations.md)
-- [Chaincode Operations : Basic chaincode interactions.](docs/Chaincode Operations.md)
-- [External Chaincode : Executing chaincode on an external container. This an advanced feature.](docs/External Chaincode.md)
+- [Installation Guide : For customization of microsoft arm template for user defined organisation details.](docs/InstallationGuide.md)
+- [Generating Profiles : The admin,msp and connection profiles for orderer and peer.](docs/CreatingProfiles.md)
+- [Fabric CA Operations : Step if you wish to create a custom user for fabric ca.] (docs/CA.md)
+- [Consortium Creation : Creation of multiple organisations and their crypto materials.](docs/CreatingConsortiums.md)
+- [Setup Fabric Cli Go : Command line interface for interacting with the blockchain system.](docs/FabricGoCli.md)
+- [Channel Operations : Creation of channels and basic operations on them.](docs/ChannelOperations.md)
+- [Chaincode Operations : Basic chaincode interactions.](docs/ChaincodeOperations.md)
+- [External Chaincode : Executing chaincode on an external container. This an advanced feature.](docs/ExternalChaincode.md)
 - Example chaincode `asset-transfer-basic` and sample commands are provided in `chaincode-sample` folder.

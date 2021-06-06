@@ -13,7 +13,7 @@ The following requirements need to be met:
 ## Manual deployment
 
 
-![AzureBase.png](images/AzureBase.png)
+![AzureBase.png](../images/AzureBase.png)
 
 
 - Hyperledger Fabric 2.2 network which is made up of a Peer Cluster and an Orderer Cluster that gets deployed separately and gets connected post deployment facilitated with IaaS model using Microsoft ARM template.
@@ -81,4 +81,4 @@ az storage blob upload --account-name <storageAccountName> --container-name mktp
 
 ## Create Connection Profiles
   - Continue the deployment by creating connection profiles.
- - [Profiles](url)
+ - [Profiles](CreatingProfiles.md)

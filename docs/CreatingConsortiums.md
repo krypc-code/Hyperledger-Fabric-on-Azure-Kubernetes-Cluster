@@ -1,6 +1,6 @@
 # Consortium Creation
 
-![consortiums.png](images/consortiums.png)
+![consortiums.png](../images/consortiums.png)
 
 
 
@@ -121,4 +121,4 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
   
 ## Follow Up
 - Continue deployment by creating a command line interface.
-- [Fabric Go Cli](url)
+- [Fabric Go Cli](FabricGoCli.md)
