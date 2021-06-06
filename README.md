@@ -48,8 +48,7 @@
 
 
 3.	Latest releases
-   - Release 1.4
-   - Release 2.2
+   - Release 1.0 HLF 2.2 on AKS
 
 
 4.	API references
