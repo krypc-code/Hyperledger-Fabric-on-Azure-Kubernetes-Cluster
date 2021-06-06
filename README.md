@@ -1,5 +1,62 @@
-## Hyperledger Fabric on Azure Kubernetes Service using ARM🥁
+![logo 216.png](images/logo.png)
 
+# Introduction 
+
+- Microsoft provides ARM template for creating HLF network on AKS via https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service.Since this repo only covers HLF 1.4 and there is a need for HL 2.x in the market due it's widely popular features and improvments, we have created this repository with HLF 2.2. support following the same order as the Microsoft Sample.
+
+# HLF Deployer 
+
+
+- Hyperledger Fabric (HLF) Deployer is a simple to use Azure template that spins off Microsoft Azure resources for enterprise users to deploy and configure Hyperledger Fabric network on Azure including “peer”, “orderer” and other minimum required micro services. Besides getting HLF network deployed on AKS in few clicks, enterprise users will find this template useful for External Chaincode Support, Log Analytics Workspace Support and Fabric Go CLI for Interaction with HLF Network.  
+
+- HLF Deployer is free service without any service-level agreement provided by KrypC Technologies in association with Microsoft in Azure Market Place. Use Github Link for further details.  
+
+# Blockchain Services 
+
+- Beyond deployment, enterprises would need many dynamic services for developing a HLF program and managing the HLF network while in production mode. For this, KrypC, a Hyperledger Certified Service Provider, provides the following commercial HLF Service Packs that Azure enterprise customers can choose:  
+
+
+- **Option A: KrypC HLF BaaS** helps enterprise users to manage any Hyperledger Fabric programs at all stages of its lifecycle using simple steps through sequential GUI screens. Features of KrypC HLF BaaS include Chaincode management, Node management, Channel management, Datalake for business data reporting, Explorer Plus for business data visualization, Identity Management, External Chaincode Management and Customizable Publisher Subscriber Notification System.  
+
+- **KrypC HLF BaaS** is available as a licensed software. Refer KrypC HLF Services Document to know more about KrypC HLF BaaS.  
+
+- **Option B: KrypC Managed HLF Services** is a collection of KrypC’s HLF services and capabilities made available as fully outsourced model. By availing this service, enterprises can swiftly participate in any HLF ecosystem and focus on the business aspects of the program while leaving the nuances and challenges relating to HLF technology to KrypC.  
+
+- **KrypC Managed HLF Services** will include features like Chaincode management, Node management, Channel management, Datalake for business data reporting, Explorer Plus for business data visualization, Identity Management, External Chaincode Management and Customizable Publisher Subscriber Notification System which will be supplemented with Performance Monitoring, Log Analytics, Performance Visualization, Maintenance and 24/7 Support for your enterprise blockchain network.  
+
+- **KrypC Managed HLF Services** is available as a subscription service. Refer KrypC HLF Services Document to know more about KrypC Managed HLF Services. 
+
+# Getting Started
+
+1.	Installation process
+ - Installation process is detailed step by step in different markdown files. Developers can follow the guide to install and perform transactions on Hyperledger Fabric 2.2.
+ 
+      - [Installation Guide](url)
+
+
+2.	Software dependencies
+   -  Go 1.14
+   -  Make
+   -  Docker
+   -  Docker Compose
+   -  Git
+   -  gobin (GO111MODULE=off go get -u github.com/myitcv/gobin)
+   -  libtool
+   -  kubectl
+   -  azhlftool
+
+
+
+3.	Latest releases
+   - Release 1.4
+   - Release 2.2
+
+
+4.	API references
+
+
+
+# Hyperledger Fabric on Azure Kubernetes Service
 
 - Microsoft provides ARM template for creating HLF network on AKS via `https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service`.
 Since this repo only covers HLF 1.4 and there is a need for HL 2.x in the market due it's widely popular features and improvments, we have created this repository with HLF 2.2. support following the same order as the Microsoft Sample.
@@ -46,14 +103,13 @@ The last section on external chaincode execution can be performed by using conne
 Connection will have things like address port etc,metadata will have type and label of chaincode etc.
 
 
-
-## Follow 🛠
-- [ARM Template Deployment : For customization of microsoft arm template for user defined organisation details.](fabric-part-1.md)
-- [Generating Profiles : The admin,msp and connection profiles for orderer and peer.](fabric-part-2.md)
-- [Fabric CA Operations : Step if you wish to create a custom user for fabric ca.](fabric-ca.md)
-- [Consortium Creation : Creation of multiple organisations and their crypto materials.](fabric-part-3.md)
-- [Setup Fabric Cli Go : Command line interface for interacting with the blockchain system.](fabric-part-4.md)
-- [Channel Operations : Creation of channels and basic operations on them.](fabric-part-5.md)
-- [Chaincode Operations : Basic chaincode interactions.](fabric-part-6.md)
-- [External Chaincode : Executing chaincode on an external container. This an advanced feature.](fabric-part-7.md)
+## Docs 🛠
+- [Installation Guide : For customization of microsoft arm template for user defined organisation details.](docs/Installation Guide.md)
+- [Generating Profiles : The admin,msp and connection profiles for orderer and peer.](docs/Creating Profiles.md)
+- [Fabric CA Operations : Step if you wish to create a custom user for fabric ca.](docs/CA.md)
+- [Consortium Creation : Creation of multiple organisations and their crypto materials.](docs/Creating Consortiums.md)
+- [Setup Fabric Cli Go : Command line interface for interacting with the blockchain system.](docs/Fabric Go Cli.md)
+- [Channel Operations : Creation of channels and basic operations on them.](docs/Channel Operations.md)
+- [Chaincode Operations : Basic chaincode interactions.](docs/Chaincode Operations.md)
+- [External Chaincode : Executing chaincode on an external container. This an advanced feature.](docs/External Chaincode.md)
 - Example chaincode `asset-transfer-basic` and sample commands are provided in `chaincode-sample` folder.
