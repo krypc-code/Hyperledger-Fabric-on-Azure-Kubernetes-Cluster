@@ -24,7 +24,7 @@
   cd app`
 
 - Execute below command to download all the required files and packages:
-- ``curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/application/setup.sh | bash``
+- ``curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/master/application/setup.sh | bash``
 
 
 - This command takes some time as it loads all the packages. After successful execution of the command, you can see a `node_modules` folder in the current directory. All the required packages are loaded in the `node_modules` folder.
