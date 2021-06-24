@@ -40,7 +40,7 @@ The following requirements need to be met:
 
 ### Navigate to the scripts directory
 
-`cd Hyperledger-Fabric-On-AKS/scripts`
+`cd Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/scripts`
 
 
 ### Execute the generateArtifacts.sh script
@@ -69,13 +69,13 @@ For example, if we are uploading the artifacts to the Azure Blob using Azure CLI
 
 - First,create storage account, get account keys and create a container named `mktplace` inside it.
 ```
-az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-On-AKS/out/hlf-marketplace.zip --name hlf-marketplace.zip --account-key $ACCOUNT_KEY
+az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/out/hlf-marketplace.zip --name hlf-marketplace.zip --account-key $ACCOUNT_KEY
 
-az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-On-AKS/out/artifacts/funcNodeJS.zip --name artifacts/funcNodeJS.zip --account-key $ACCOUNT_KEY
+az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/out/artifacts/funcNodeJS.zip --name artifacts/funcNodeJS.zip --account-key $ACCOUNT_KEY
 
-az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-On-AKS/out/nestedtemplates/publicIpTemplate.json --name nestedtemplates/publicIpTemplate.json --account-key $ACCOUNT_KEY
+az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/out/nestedtemplates/publicIpTemplate.json --name nestedtemplates/publicIpTemplate.json --account-key $ACCOUNT_KEY
 
-az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-On-AKS/out/mainTemplate.json --name mainTemplate.json --account-key $ACCOUNT_KEY
+az storage blob upload --account-name <storageAccountName> --container-name mktplace --file <rootDir>/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/out/mainTemplate.json --name mainTemplate.json --account-key $ACCOUNT_KEY
 
 ```
 
