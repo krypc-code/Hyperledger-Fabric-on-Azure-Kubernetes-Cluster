@@ -21,9 +21,9 @@
 ## Generate connection profile and admin profile
 
 - Create profile directory inside the app folder
-- `cd application
+- cd application
 - 
-- mkdir ./profile`
+- mkdir ./profile
 
 - Set these environment variables on Azure cloud shell
 
