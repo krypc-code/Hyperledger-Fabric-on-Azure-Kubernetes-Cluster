@@ -22,7 +22,8 @@
 
 - Create profile directory inside the app folder
 - `cd application
-  mkdir ./profile`
+- 
+- mkdir ./profile`
 
 - Set these environment variables on Azure cloud shell
 
