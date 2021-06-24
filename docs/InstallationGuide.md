@@ -36,7 +36,7 @@ The following requirements need to be met:
 ## Generating the docker image and the marketplace artifacts 🛠
 ### Clone the git repo
 
-`git clone https://github.com/citizenkarthik/Hyperledger-Fabric-On-AKS.git`
+`git clone https://github.com/krypc-code/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster.git`
 
 ### Navigate to the scripts directory
 
