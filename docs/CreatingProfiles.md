@@ -17,23 +17,11 @@
 
 - Sample application for performing the HLF operations. The commands are provided to Create new user identity and install your own chaincode.
 
-## Download application files
-- The first setup for running application is to download all the application files in a folder say app.
-- Create app folder move inside app:
-- `mkdir app
-  cd app`
-
-- Execute below command to download all the required files and packages:
-- ``curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/master/application/setup.sh | bash``
-
-
-- This command takes some time as it loads all the packages. After successful execution of the command, you can see a `node_modules` folder in the current directory. All the required packages are loaded in the `node_modules` folder.
-
 
 ## Generate connection profile and admin profile
 
 - Create profile directory inside the app folder
-- `cd app
+- `cd application
   mkdir ./profile`
 
 - Set these environment variables on Azure cloud shell
