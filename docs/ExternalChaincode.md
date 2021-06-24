@@ -33,7 +33,7 @@ $ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' crypto/cert1.pem
 ```
 - Mount tls certs as k8s secrets in chaincode container, find reference below
 
-> Note: the steps provided below and their explainations refered to tha sample provided in this repository at `Hyperledger-Fabric-On-AKS/chaincode-samples/asset-transfer-basic/chaincode-external`
+> Note: the steps provided below and their explainations refered to tha sample provided in this repository at `Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/chaincode-samples/asset-transfer-basic/chaincode-external`
 ## Packaging Chaincode
 
 
@@ -42,7 +42,7 @@ $ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' crypto/cert1.pem
 - The following asset-transfer-basic-external.tgz archive demonstrates the required structure:
 
 ```
-$ cd <rootDir>/Hyperledger-Fabric-On-AKS/chaincode-samples/asset-transfer-basic/chaincode-external/
+$ cd <rootDir>/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/chaincode-samples/asset-transfer-basic/chaincode-external/
 $ tar cfz code.tar.gz connection.json
 $ tar cfz asset-transfer-basic-external.tgz metadata.json 
 ```
