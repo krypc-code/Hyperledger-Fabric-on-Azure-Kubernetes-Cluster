@@ -640,7 +640,7 @@
             "resources": [
               {
                 "type": "Microsoft.Network/virtualNetworks/subnets/providers/roleAssignments",
-                "apiVersion": "2020-11-01",
+                "apiVersion": "2021-04-01-preview",
                 "name": "[concat(parameters('vNetName'), '/', parameters('clusterSubNetName'), '/Microsoft.Authorization/', parameters('randomGuid'))]",
                 "properties": {
                   "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', variables('netContributorRoleID'))]",
