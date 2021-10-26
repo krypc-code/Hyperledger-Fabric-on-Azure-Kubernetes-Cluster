@@ -44,7 +44,7 @@ $ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' crypto/cert1.pem
 ```
 $ cd <rootDir>/Hyperledger-Fabric-on-Azure-Kubernetes-Cluster/chaincode-samples/asset-transfer-basic/chaincode-external/
 $ tar cfz code.tar.gz connection.json
-$ tar cfz asset-transfer-basic-external.tgz metadata.json 
+$ tar cfz asset-transfer-basic-external.tgz metadata.json code.tar.gz
 ```
 >   Note: Fabric cli should be initialized
 
