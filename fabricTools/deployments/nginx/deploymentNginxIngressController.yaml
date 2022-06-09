@@ -23,10 +23,10 @@ spec:
       - name: fabric-tools-secrets
       containers:
         - name: nginx-ingress-controller
-          image: "hlfakstemplate.azurecr.io/nginx/nginx-ingress-controller:0.26.1"
+          image: "k8s.gcr.io/ingress-nginx/controller:v0.48.1@sha256:e9fb216ace49dfa4a5983b183067e97496e7a8b307d2093f4278cd550c303899"
           args:
             - /nginx-ingress-controller
-            - --default-backend-service={namespace}/nginx-ingress-default-backend
+            - --publish-service=$(POD_NAMESPACE)/nginx-ingress-controller
             - --election-id=ingress-controller-leader
             - --ingress-class=nginx
             - --configmap={namespace}/nginx-ingress-controller
@@ -37,7 +37,7 @@ spec:
                 - ALL
               add:
                 - NET_BIND_SERVICE
-            runAsUser: 33
+            runAsUser: 101
             allowPrivilegeEscalation: true
           env:
             - name: POD_NAME
@@ -62,6 +62,9 @@ spec:
             - name: https
               containerPort: 443
               protocol: TCP
+            - name: http
+              containerPort: 80
+              protocol: TCP              
           readinessProbe:
             httpGet:
               path: /healthz

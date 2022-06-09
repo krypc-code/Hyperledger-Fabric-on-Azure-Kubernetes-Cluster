@@ -18,7 +18,6 @@ function deployNginx {
   logMessage "Info" "Starting Nginx controller" "$scriptStartTime" 
   exportSecret fabric-tools-secrets ${toolsNamespace} ${nginxNamespace} ${scriptStartTime}
   executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/serviceAccountNginxIngress.yaml -n ${nginxNamespace}" "Nginx service account creation failed!!!" "$scriptStartTime" "verifyResult"
-  executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/serviceAccountNginxIngressBackend.yaml -n ${nginxNamespace}" "Nginx backend service account creation failed!!!" "$scriptStartTime" "verifyResult"
   executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/clusterRoleNginxIngress.yaml -n ${nginxNamespace}" "Nginx cluster role creation failed!!!" "$scriptStartTime" "verifyResult"
   sed -i -e "s/{namespace}/${nginxNamespace}/g" $DEPLOYMENTS/nginx/clusterRoleBindingNginxIngress.yaml
   executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/clusterRoleBindingNginxIngress.yaml -n ${nginxNamespace}" "Nginx cluster role binding failed!!!" "$scriptStartTime" "verifyResult"
@@ -27,10 +26,8 @@ function deployNginx {
   executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/roleBindingNginxIngress.yaml -n ${nginxNamespace}" "Nginx role binding failed!!!" "$scriptStartTime" "verifyResult"
   sed -i -e "s/{nginxipaddress}/${nginxIP}/g" $DEPLOYMENTS/nginx/serviceNginxIngressController.yaml 
   executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/serviceNginxIngressController.yaml -n ${nginxNamespace}" "Nginx controller service creation failed!!!" "$scriptStartTime" "verifyResult"
-  executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/serviceNginxIngressDefaultBackend.yaml -n ${nginxNamespace}" "Nginx backend service creation failed!!!" "$scriptStartTime" "verifyResult"
   sed -i -e "s/{namespace}/${nginxNamespace}/g" $DEPLOYMENTS/nginx/deploymentNginxIngressController.yaml
   executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/deploymentNginxIngressController.yaml -n ${nginxNamespace}" "Nginx controller deployment failed!!!" "$scriptStartTime" "verifyResult"
-  executeKubectlWithRetry "kubectl apply -f $DEPLOYMENTS/nginx/deploymentNginxIngressDefaultBackend.yaml -n ${nginxNamespace}" "Nginx backend deployment failed!!!" "$scriptStartTime" "verifyResult"
   logMessage "Info" "Successfully started Nginx!" "$scriptStartTime" 
   updateHlfStatus "Inprogress" "Successfully started Nginx." "$scriptStartTime" 
 }
@@ -116,7 +113,7 @@ function deployNodes {
       mkdir /tmp/channel-artifacts
       {
       export FABRIC_CFG_PATH="/tmp"
-      configtxgen -profile SampleEtcdRaftProfile -outputBlock /tmp/channel-artifacts/genesis.block
+      configtxgen -profile SampleEtcdRaftProfile -outputBlock /tmp/channel-artifacts/genesis.block -channelID testchainid
       res=$?
       verifyResult $res "Generating genesis block failed!" "$scriptStartTime" 
   
