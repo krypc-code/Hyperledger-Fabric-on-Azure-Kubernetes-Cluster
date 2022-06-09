@@ -28,9 +28,8 @@ FROM golang as hlf-builder
 
 RUN cd $GOPATH/src/github.com/hyperledger/fabric \
     && make configtxgen configtxlator cryptogen discover idemixgen peer orderer \
-	&& make .build/sampleconfig.tar.bz2 \
 	&& mkdir -p /sampleconfig \
-	&& tar -xf .build/sampleconfig.tar.bz2 -C /sampleconfig
+    && cp -r  sampleconfig/* /sampleconfig/
 
 RUN cd $GOPATH/src/github.com/hyperledger/fabric-ca \
     && make fabric-ca-client
@@ -51,7 +50,7 @@ ARG FABRIC_PATH=$GOPATH/src/github.com/hyperledger
     # fabric-ca
 COPY --from=hlf-builder $FABRIC_PATH/fabric-ca/bin/fabric-ca-client /usr/local/bin
     # hlf native binaries (peer, orderer, configtxgen, configtxlator, cryptogen, discover, idemixgen)
-COPY --from=hlf-builder $FABRIC_PATH/fabric/.build/bin/* /usr/local/bin/
+COPY --from=hlf-builder $FABRIC_PATH/fabric/build/bin/* /usr/local/bin/
     # hlf node/channel sample config
 RUN mkdir -p /usr/local/config
 COPY --from=hlf-builder /sampleconfig /usr/local/config
