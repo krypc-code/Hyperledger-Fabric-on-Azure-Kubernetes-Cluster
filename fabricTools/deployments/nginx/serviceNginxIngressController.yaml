@@ -1,3 +1,25 @@
+
+apiVersion: v1
+data:
+  allow-snippet-annotations: "true"
+kind: ConfigMap
+metadata:
+  labels:
+    app: nginx-ingress
+  name: nginx-ingress-controller
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  labels:
+    app: nginx-ingress
+  name: nginx
+spec:
+  controller: k8s.io/ingress-nginx
+
+---
 apiVersion: v1
 kind: Service
 metadata:

@@ -145,6 +145,9 @@ function printOrg {
     # For organization policies, their canonical path is usually
     #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
     Policies:
+        Endorsement:
+            Type: Signature
+            Rule: \"OR('${ORG_MSP_ID}.member')\"    
         Readers:
             Type: Signature
             Rule: \"OR('${ORG_MSP_ID}.member')\"
@@ -226,6 +229,12 @@ Application: &ApplicationDefaults
     # For Application policies, their canonical path is
     #   /Channel/Application/<PolicyName>
     Policies:
+        LifecycleEndorsement:
+            Type: ImplicitMeta
+            Rule: \"MAJORITY Endorsement\"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: \"MAJORITY Endorsement\"    
         Readers:
             Type: ImplicitMeta
             Rule: \"ANY Readers\"
@@ -365,7 +374,7 @@ fi
 
 {
 echo "
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ${nodeType}-ingress
@@ -384,8 +393,11 @@ echo "
     http:
       paths:
       - backend:
-          serviceName: ${nodeType}${i}
-          servicePort: ${svcPort}"
+          service:
+            name: ${nodeType}${i}
+            port:
+              number: ${svcPort}      
+        pathType: ImplementationSpecific"
 done
 } > /tmp/nodeIngress.yaml
 }
@@ -395,7 +407,7 @@ domainName=$1
 
 {
 echo "
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ca-ingress
@@ -411,8 +423,11 @@ echo "
     http:
       paths:
       - backend:
-          serviceName: ca
-          servicePort: 7054"
+          service:
+            name: ca
+            port:
+              number: 7054
+        pathType: ImplementationSpecific"
 } > /tmp/caIngress.yaml
 }
 
